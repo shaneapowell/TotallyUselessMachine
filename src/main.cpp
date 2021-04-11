@@ -21,7 +21,7 @@
 #define DOOR_OPEN 155
 
 #define ARM_HOME  10
-#define ARM_FULL  122
+#define ARM_FULL  121
 
 #define SERVO_FAST  	1
 #define SERVO_SLOW  	70
@@ -149,13 +149,13 @@ void sequence2()
 		doorTo(40, 80, 500);
 		
 		doorTo(00, -1, 150);
-		doorTo(15, -1, 150);
+		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
-		doorTo(15, -1, 150);
+		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
-		doorTo(15, -1, 150);
+		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
-		doorTo(15, -1, 150);
+		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
 	}
 	
@@ -234,25 +234,11 @@ void sequence7()
 /************************************************/
 void sequence8()
 {
-	doorTo(50, 100, 400);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(0, 100, 200);
-	doorTo(100, 100, 300);
+	doorTo(20, 90, 400);
+	doorTo(30, 90, 400);
+	doorTo(50, 90, 400);
+	doorTo(80, 90, 400);
+	doorTo(100, 90, 400);
 	armTo(100, 100, 400);
 	armTo(0, 100, 400);
 	doorTo(0, 100, 500);
@@ -446,13 +432,13 @@ void sequence18()
 /************************************************/
 void sequence19()
 {
-	doorTo(50,  90, 200);
+	doorTo(30,  90, 200);
 	armTo(20,  100, 200);
-	doorTo(60, 100, 200);
+	doorTo(40, 100, 200);
 	armTo(40,  100, 200);
-	doorTo(70, 100, 200);
+	doorTo(55, 100, 200);
 	armTo(60,  100, 200);
-	doorTo(80, 100, 200);
+	doorTo(70, 100, 200);
 	armTo(80,  100, 200);
 	doorTo(90, 100, 200);
 	armTo(90,  100, 200);
@@ -462,13 +448,13 @@ void sequence19()
 	armTo(90,  100, 200);
 	doorTo(90, 100, 200);
 	armTo(80,  100, 200);
-	doorTo(80, 100, 200);
-	armTo(60,  100, 200);
 	doorTo(70, 100, 200);
+	armTo(60,  100, 200);
+	doorTo(55, 100, 200);
 	armTo(40,  100, 200);
-	doorTo(60, 100, 200);
+	doorTo(40, 100, 200);
 	armTo(20,  100, 200);
-	doorTo(50, 100, 200);
+	doorTo(30, 100, 200);
 
 	armTo(0,  100, 200);
 	doorTo(0, 100, 1);
@@ -565,7 +551,7 @@ void sequence24()
 	doorTo(40, 95, 2000);
 	doorTo(10,  5, 1000);
 	doorTo(50, 95, 2000);
-	doorTo(40, 95, 4000);
+	doorTo(40, 95, 2500);
 	doorTo(10,  5, 1000);
 	doorTo(60, 95, 2000);
 	doorTo(100,95, 300);
@@ -591,17 +577,17 @@ void sequence24()
 /************************************************/
 void sequence25()
 {
-	doorTo(40, 20, 1000);
+	doorTo(30, 20, 1000);
 
-	doorTo(60,  90, 100);
-	doorTo(80,  90, 100);
-	doorTo(100, 90, 100);
-	doorTo(80, 90, 100);
-	doorTo(60, 90, 100);
-	doorTo(40, 90, 100);
-	doorTo(100, 90, 100);
+	doorTo(50,  95, 100);
+	doorTo(70,  95, 100);
+	doorTo(100, 95, 100);
+	doorTo(70, 95, 100);
+	doorTo(50, 95, 100);
+	doorTo(30, 95, 100);
+	doorTo(100, 95, 100);
 
-	armTo(100, 100, 200);
+	armTo(100, 100, 250);
 	armTo(0, 100, 1000);
 
 	doorTo(0, 100, 1);
@@ -658,7 +644,7 @@ void sequence28()
 	doorTo(0,  99, 1000);
 	doorTo(40, 99, 2500);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 200);
+	armTo(100, 100, 250);
 	armTo(0, 100, 1000);
 	doorTo(0, 100, 1);
 }
@@ -669,7 +655,7 @@ void sequence29()
 	doorTo(100, 99, 1000);
 	doorTo(0,   99, 3000);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 200);
+	armTo(100, 100, 250);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 1);
 }
@@ -680,25 +666,25 @@ void sequence30()
 	doorTo(100, 70, 1000);
 	armTo(80, 100, 2000);
 
+	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
-	doorTo(70, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(70, 90, 1000);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 1000);
 	doorTo(100, 70, 2000);
 
+	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
-	doorTo(70, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(70, 90, 2000);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 2000);
 	doorTo(100, 70, 3000);
 
+	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
-	doorTo(70, 90, 100);
+	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
-	doorTo(70, 90, 100);
+	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
-	doorTo(70, 90, 100);
-	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
 	doorTo(100, 70, 500);
 
 	armTo(100, 100, 200);
@@ -777,6 +763,62 @@ void (*sequenceFPtr[])(void) =
 	sequence30
 };
 
+
+/****************************************
+ * Obtain the next random sequence ID
+ ****************************************/
+int getNextSequenceId()
+{
+	static const int sequenceCount = sizeof(sequenceFPtr) / sizeof(sequenceFPtr[0]);
+	static int  randomSequenceIndexes[sequenceCount];
+	static int currentIndexPtr = 9999;
+
+	/* Reset Random Array */
+	if (currentIndexPtr >= sequenceCount)
+	{
+		Serial.print("Shuffling Array of "); Serial.print(sequenceCount); Serial.println(" sequences");
+		for (int index = 0; index < sequenceCount; index++)
+		{
+			randomSequenceIndexes[index] = index;
+		}
+
+		/* Shuffle Elements */
+		for (int index = sequenceCount - 1; index > 0; index--)
+		{
+			int rndIndex = random(0, index);
+			int tmpId = randomSequenceIndexes[index];
+			randomSequenceIndexes[index] = randomSequenceIndexes[rndIndex];
+			randomSequenceIndexes[rndIndex] = tmpId;
+		}
+
+		for (int index = 0; index < sequenceCount; index++)
+		{
+			 Serial.print(randomSequenceIndexes[index]); Serial.print(",");
+		}
+		Serial.println("");
+
+		/* Reset Ptr */
+		currentIndexPtr = 0;
+	}
+
+	int sequenceId = randomSequenceIndexes[currentIndexPtr];
+	Serial.print("PTR: "); Serial.print(currentIndexPtr); Serial.print(" SID: "); Serial.println(sequenceId);
+
+	currentIndexPtr++;
+	return sequenceId;
+
+	// int min = 0;
+	// int max = sizeof(sequenceFPtr) / sizeof(sequenceFPtr[0]);
+	
+	// int sequenceId = random(min, max);
+	// // Serial.print("SID: "); Serial.println(sequenceId);
+	// // sequenceFPtr[sequenceId]();
+	// return sequenceId;
+
+	/* Debug */
+	//return 30
+}
+
 /************************************************
  * The loop is blocked until the pin2 interrupt unblocks it.
  ************************************************/
@@ -795,11 +837,8 @@ void loop()
 
 	readyServos();
 
-//	sequence30();
-	
 	/* Random Sequence */
-	int sequenceId = random(0, sizeof(sequenceFPtr) / sizeof(sequenceFPtr[0]));
-	Serial.print("SID: "); Serial.println(sequenceId);
+	int sequenceId  = getNextSequenceId();
 	sequenceFPtr[sequenceId]();
 
 	parkServos();
