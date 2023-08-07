@@ -129,6 +129,38 @@ void parkServos()
 	armServo.detach();
 }
 
+/************************************************/
+void sequence0()
+{
+	doorTo(100, 70, 1000);
+	armTo(85, 100, 2000);
+
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 1000);
+	doorTo(100, 70, 2000);
+
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 2000);
+	doorTo(100, 70, 3000);
+
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
+	doorTo(55, 90, 100);
+	doorTo(38, 90, 100);
+	doorTo(100, 70, 500);
+
+	armTo(100, 100, 200);
+	armTo(0, 100, 100);
+	doorTo(0, 70, 1);
+}
+
 
 /************************************************/
 void sequence1()
@@ -136,7 +168,7 @@ void sequence1()
 	doorTo(40,  60,   1000);
 	doorTo(0,   100, 1000);
 	doorTo(100, 100,  50);
-	armTo(100, 100, 400);
+	armTo(100, 100, 300);
 	armTo(0,   100, 100);
 	doorTo(0,   100, 400);
 }
@@ -257,7 +289,7 @@ void sequence9()
 	doorTo(40, 100, 500);
 	doorTo(100, 100, 1);
 	armTo(80, 100, 500);
-	armTo(100, 100, 200);
+	armTo(100, 100, 100);
 	armTo(80, 100, 500);
 	armTo(0, 100, 500);
 	doorTo(0, 100, 500);
@@ -278,7 +310,7 @@ void sequence10()
 void sequence11()
 {
 	doorTo(100, 100, 200);
-	armTo(100, 100, 400);
+	armTo(100, 100, 200);
 	armTo(80, 80, 1000);
 	armTo(40, 80, 1000);
 	doorTo(40, 60, 10);
@@ -310,7 +342,7 @@ void sequence12()
 void sequence13()
 {
 	doorTo(100, 100, 1);
-	armTo(100, 100, 400);
+	armTo(100, 100, 200);
 	armTo(80, 100, 150);
 	armTo(100, 100, 150);
 	armTo(80, 100, 150);
@@ -402,7 +434,7 @@ void sequence17()
 	doorTo(30, 40,  100);
 	doorTo(100, 95, 300);
 
-	armTo(100, 100, 400);
+	armTo(100, 100, 200);
 	armTo(0, 100, 100);
 
 	doorTo(0, 100, 1);
@@ -577,7 +609,7 @@ void sequence25()
 	doorTo(30, 95, 100);
 	doorTo(100, 95, 100);
 
-	armTo(100, 100, 450);
+	armTo(100, 100, 250);
 	armTo(0, 100, 1000);
 
 	doorTo(0, 100, 1);
@@ -598,7 +630,7 @@ void sequence26()
 	doorTo(100, 60, 800);
 
 	armTo(80, 100, 100);
-	armTo(100, 100, 350);
+	armTo(100, 100, 250);
 	armTo(0, 100, 1000);
 
 	doorTo(0, 30, 1);
@@ -634,7 +666,7 @@ void sequence28()
 	doorTo(0,  99, 1000);
 	doorTo(40, 99, 2500);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 450);
+	armTo(100, 100, 250);
 	armTo(0, 100, 1000);
 	doorTo(0, 100, 1);
 }
@@ -645,42 +677,11 @@ void sequence29()
 	doorTo(100, 99, 1000);
 	doorTo(0,   99, 3000);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 450);
+	armTo(100, 100, 250);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 1);
 }
 
-/************************************************/
-void sequence30()
-{
-	doorTo(100, 70, 1000);
-	armTo(85, 100, 2000);
-
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 1000);
-	doorTo(100, 70, 2000);
-
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 2000);
-	doorTo(100, 70, 3000);
-
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(38, 90, 100);
-	doorTo(55, 90, 100);
-	doorTo(38, 90, 100);
-	doorTo(100, 70, 500);
-
-	armTo(100, 100, 350);
-	armTo(0, 100, 100);
-	doorTo(0, 70, 1);
-}
 
 /************************************************
  * ISR
@@ -721,6 +722,7 @@ void setup()
 /* An array of all possible sequence functions */
 void (*sequenceFPtr[])(void) =
 {
+	sequence0,
 	sequence1,
 	sequence2,
 	sequence3,
@@ -749,8 +751,7 @@ void (*sequenceFPtr[])(void) =
 	sequence26,
 	sequence27,
 	sequence28,
-	sequence29,
-	sequence30
+	sequence29
 };
 
 
