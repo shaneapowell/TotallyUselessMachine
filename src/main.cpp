@@ -1,5 +1,5 @@
 /************************************************
- * 
+ *
  * Power Consumption Metrics:
  *  Stock:             20mA
  *  Power LED removed: 14mA
@@ -21,7 +21,7 @@
 #define DOOR_OPEN 155
 
 #define ARM_HOME  10
-#define ARM_FULL  121
+#define ARM_FULL  116
 
 #define SERVO_FAST  	1
 #define SERVO_SLOW  	70
@@ -32,7 +32,7 @@ PWMServo armServo;
 
 
 /************************************************
- * Move the provided servo from position to position, with 
+ * Move the provided servo from position to position, with
  * a n microseconds delay between each step.
  ************************************************/
 void servoFromTo(PWMServo& servo, int from, int to, unsigned int delayms)
@@ -43,7 +43,7 @@ void servoFromTo(PWMServo& servo, int from, int to, unsigned int delayms)
 		return;
 	}
 
-	int direction = from < to ? 1 : -1;	
+	int direction = from < to ? 1 : -1;
 	while (from != to)
 	{
 		servo.write(from);
@@ -78,7 +78,7 @@ void doorTo(int to, int speed, int wait)
 
 /************************************************
  * Move the arm to position "to" at "speed"
- * to = 0 - 100 
+ * to = 0 - 100
  * speed = 0 - 100
  * After the move, wait n milliseconds.
  * It takes 500ms for the arm to move full sweep.
@@ -121,7 +121,7 @@ void parkServos()
 {
 	doorServo.write(DOOR_CLOSED);
 	armServo.write(ARM_HOME);
-	
+
 	delay(1000);
 	digitalWrite(RELAY_PIN, LOW);
 
@@ -136,7 +136,7 @@ void sequence1()
 	doorTo(40,  60,   1000);
 	doorTo(0,   100, 1000);
 	doorTo(100, 100,  50);
-	armTo(100, 100, 300);
+	armTo(100, 100, 400);
 	armTo(0,   100, 100);
 	doorTo(0,   100, 400);
 }
@@ -147,7 +147,7 @@ void sequence2()
 	for (int i = 0; i < 2; i++)
 	{
 		doorTo(40, 80, 500);
-		
+
 		doorTo(00, -1, 150);
 		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
@@ -158,10 +158,10 @@ void sequence2()
 		doorTo(25, -1, 150);
 		doorTo(00, -1, 150);
 	}
-	
+
 	doorTo(40, 80, 1500);
 	doorTo(100, 100, 100);
-	
+
 	armTo(100, 100, 400);
 	armTo(0, 100, 200);
 	doorTo(0, 100, 0);
@@ -248,26 +248,16 @@ void sequence8()
 void sequence9()
 {
 	doorTo(20, 100, 500);
-	doorTo(40, 100, 100);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
-	doorTo(40, 100, 50);
-	doorTo(65, 100, 50);
+
+	for (int i = 0; i < 9; i++)
+	{
+		doorTo(40, 100, 100);
+		doorTo(65, 100, 50);
+	}
 	doorTo(40, 100, 500);
 	doorTo(100, 100, 1);
 	armTo(80, 100, 500);
-	armTo(100, 100, 100);
+	armTo(100, 100, 200);
 	armTo(80, 100, 500);
 	armTo(0, 100, 500);
 	doorTo(0, 100, 500);
@@ -288,7 +278,7 @@ void sequence10()
 void sequence11()
 {
 	doorTo(100, 100, 200);
-	armTo(100, 100, 200);
+	armTo(100, 100, 400);
 	armTo(80, 80, 1000);
 	armTo(40, 80, 1000);
 	doorTo(40, 60, 10);
@@ -320,7 +310,7 @@ void sequence12()
 void sequence13()
 {
 	doorTo(100, 100, 1);
-	armTo(100, 100, 200);
+	armTo(100, 100, 400);
 	armTo(80, 100, 150);
 	armTo(100, 100, 150);
 	armTo(80, 100, 150);
@@ -338,7 +328,7 @@ void sequence13()
 void sequence14()
 {
 	doorTo(100, 100, 1);
-	armTo(80, 100, 200);
+	armTo(85, 100, 200);
 	armTo(100, 0, 30);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 1);
@@ -412,7 +402,7 @@ void sequence17()
 	doorTo(30, 40,  100);
 	doorTo(100, 95, 300);
 
-	armTo(100, 100, 200);
+	armTo(100, 100, 400);
 	armTo(0, 100, 100);
 
 	doorTo(0, 100, 1);
@@ -422,7 +412,7 @@ void sequence17()
 void sequence18()
 {
 	doorTo(100, 70, 100);
-	armTo(80, 100, 3500);
+	armTo(84, 100, 3500);
 
 	armTo(100, 100, 100);
 	armTo(0, 100, 100);
@@ -439,9 +429,9 @@ void sequence19()
 	doorTo(55, 100, 200);
 	armTo(60,  100, 200);
 	doorTo(70, 100, 200);
-	armTo(80,  100, 200);
+	armTo(75,  100, 200);
 	doorTo(90, 100, 200);
-	armTo(90,  100, 200);
+	armTo(85,  100, 200);
 	doorTo(100, 100, 200);
 	armTo(100,  100, 200);
 
@@ -484,7 +474,7 @@ void sequence20()
 	armTo(90, 30, 10);
 	armTo(95, 15, 10);
 	armTo(100,10, 500);
-		
+
 	armTo(0, 100, 100);
 	doorTo(0, 100, 1);
 }
@@ -503,30 +493,30 @@ void sequence21()
 void sequence22()
 {
 	doorTo(100,  95, 100);
-	armTo(80, 100, 500);
+	armTo(84, 100, 500);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 2000);
 
 	doorTo(60,  95, 500);
 	doorTo(100,  95, 100);
-	armTo(80, 100, 500);
+	armTo(84, 100, 500);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 3000);
 
 	doorTo(60,  95, 500);
 	doorTo(0,   95, 500);
 	doorTo(100,  95, 100);
-	armTo(80, 100, 500);
+	armTo(84, 100, 500);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 2000);
 
 	doorTo(60,  95, 500);
 	doorTo(100,  95, 100);
-	armTo(80, 100, 500);
+	armTo(84, 100, 500);
 	armTo(60, 70, 800);
-	armTo(80, 100, 500);
+	armTo(84, 100, 500);
 	armTo(60, 70, 400);
-	armTo(80, 100, 1500);
+	armTo(84, 100, 1500);
 	armTo(100,10,  100);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 2000);
@@ -536,9 +526,9 @@ void sequence22()
 void sequence23()
 {
 	doorTo(100, 95, 100);
-	armTo(80, 99,  1000);
-	armTo(85, 1,   900);
-	armTo(90, 1,   800);
+	armTo(83, 99,  1000);
+	armTo(87, 1,   800);
+	armTo(90, 1,   700);
 	armTo(95, 1,   300);
 	armTo(100, 1,   10);
 	armTo(0, 100, 100);
@@ -557,17 +547,17 @@ void sequence24()
 	doorTo(100,95, 300);
 
 	armTo(70, 20,  10);
-	armTo(90,100,  1);
+	armTo(85,200,  1);
 	armTo(40, 100, 2000);
 	armTo(50, 100, 1000);
 
 	armTo(70, 20,  10);
-	armTo(90,100,  1);
+	armTo(85, 200,  1);
 	armTo(40, 100, 2000);
 	armTo(50, 100, 1000);
 	armTo(60, 100, 1000);
 
-	armTo(70, 20,  10);
+	armTo(80, 20,  10);
 	armTo(100,100, 250);
 	armTo(0, 100, 100);
 
@@ -587,7 +577,7 @@ void sequence25()
 	doorTo(30, 95, 100);
 	doorTo(100, 95, 100);
 
-	armTo(100, 100, 250);
+	armTo(100, 100, 450);
 	armTo(0, 100, 1000);
 
 	doorTo(0, 100, 1);
@@ -608,7 +598,7 @@ void sequence26()
 	doorTo(100, 60, 800);
 
 	armTo(80, 100, 100);
-	armTo(100, 100, 200);
+	armTo(100, 100, 350);
 	armTo(0, 100, 1000);
 
 	doorTo(0, 30, 1);
@@ -621,11 +611,11 @@ void sequence27()
 	doorTo(100, 99, 1000);
 
 	armTo(30, 100, 500);
-	armTo(80, 60,  800);
+	armTo(85, 60,  800);
 	armTo(40, 100, 200);
-	armTo(80, 40,  800);
+	armTo(85, 40,  800);
 	armTo(40, 100, 200);
-	armTo(80, 20,  800);
+	armTo(85, 20,  800);
 	armTo(40, 100, 100);
 	armTo(100, 100, 200);
 	armTo(0, 100, 1000);
@@ -644,7 +634,7 @@ void sequence28()
 	doorTo(0,  99, 1000);
 	doorTo(40, 99, 2500);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 250);
+	armTo(100, 100, 450);
 	armTo(0, 100, 1000);
 	doorTo(0, 100, 1);
 }
@@ -655,7 +645,7 @@ void sequence29()
 	doorTo(100, 99, 1000);
 	doorTo(0,   99, 3000);
 	doorTo(100, 99, 100);
-	armTo(100, 100, 250);
+	armTo(100, 100, 450);
 	armTo(0, 100, 100);
 	doorTo(0, 100, 1);
 }
@@ -664,7 +654,7 @@ void sequence29()
 void sequence30()
 {
 	doorTo(100, 70, 1000);
-	armTo(80, 100, 2000);
+	armTo(85, 100, 2000);
 
 	doorTo(38, 90, 100);
 	doorTo(55, 90, 100);
@@ -687,7 +677,7 @@ void sequence30()
 	doorTo(38, 90, 100);
 	doorTo(100, 70, 500);
 
-	armTo(100, 100, 200);
+	armTo(100, 100, 350);
 	armTo(0, 100, 100);
 	doorTo(0, 70, 1);
 }
@@ -701,7 +691,7 @@ void activateTriggerInterrupt()
 }
 
 /************************************************
- * 
+ *
  ************************************************/
 void setup()
 {
@@ -724,18 +714,18 @@ void setup()
 	delay(200);
 
 	randomSeed(analogRead(0));
-	
+
 }
 
 
 /* An array of all possible sequence functions */
-void (*sequenceFPtr[])(void) = 
+void (*sequenceFPtr[])(void) =
 {
-	sequence1, 
-	sequence2, 
-	sequence3, 
+	sequence1,
+	sequence2,
+	sequence3,
 	sequence4,
-	sequence5, 
+	sequence5,
 	sequence6,
 	sequence7,
 	sequence8,
@@ -809,7 +799,7 @@ int getNextSequenceId()
 
 	// int min = 0;
 	// int max = sizeof(sequenceFPtr) / sizeof(sequenceFPtr[0]);
-	
+
 	// int sequenceId = random(min, max);
 	// // Serial.print("SID: "); Serial.println(sequenceId);
 	// // sequenceFPtr[sequenceId]();
@@ -825,7 +815,7 @@ int getNextSequenceId()
 void loop()
 {
 
-	/* Block on low-power mode here.  When we wake back up .. fire off a sequence 
+	/* Block on low-power mode here.  When we wake back up .. fire off a sequence
 	 But, if we got here, and the trigger pin is still low, someone turned it back on already */
 	if (digitalRead(TRIGGER_PIN) == HIGH)
 	{
